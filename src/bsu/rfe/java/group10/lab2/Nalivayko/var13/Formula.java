@@ -4,40 +4,69 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Formula extends JFrame {
-    // Размеры окна приложения в виде констант
     private static final int WIDTH = 400;
     private static final int HEIGHT = 320;
-    // Текстовые поля для считывания значений переменных X и Y,
-// как компоненты, совместно используемые в различных методах
-    private JTextField textFieldX;
-    private JTextField textFieldY;
-    // как компонент, совместно используемый в различных методах
-    private JTextField textFieldResult;
-    // Группа радио-кнопок для обеспечения уникальности выделения в группе
-    private ButtonGroup radioButtons = new ButtonGroup();
-    // Контейнер для отображения радио-кнопок
-    private Box hboxFormulaType = Box.createHorizontalBox();
-    // Идентификатор выбранной формулы
     private int formulaId = 1;
-    Formula(){
-        textFieldX = new JTextField("ololo");
-        textFieldX.setMaximumSize(new Dimension(100*textFieldX.getPreferredSize().width, textFieldX.getPreferredSize().height));
-        textFieldY = new JTextField("kek");
+
+    Formula() {
+setSize(400, 400);
+        JTextField textFieldX = createTextField("0");
+        JTextField textFieldY = createTextField("0");
+        JTextField textFieldZ = createTextField("0");
         Box textFieldBox = Box.createHorizontalBox();
         textFieldBox.add(Box.createHorizontalGlue());
         textFieldBox.add(textFieldX);
-        textFieldBox.add(Box.createHorizontalStrut(20));
+        textFieldBox.add(Box.createHorizontalGlue());
         textFieldBox.add(textFieldY);
         textFieldBox.add(Box.createHorizontalGlue());
-        this.getContentPane().add(textFieldBox);
+        textFieldBox.add(textFieldZ);
+        textFieldBox.add(Box.createHorizontalGlue());
+        JRadioButton func1=new JRadioButton("Formula 1");
+        func1.setSelected(true);
+        JRadioButton func2=new JRadioButton("Formula 2");
+        ButtonGroup radioButtons = new ButtonGroup();
+        radioButtons.add(func1);
+        func1.addActionListener(actionEvent->{
+            formulaId=1;
+        });
+        radioButtons.add(func2);
+        func2.addActionListener(actionEvent->{
+            formulaId=2;
+        });
+
+        JButton buttonCalc = new JButton("Вычислить");
+
+        Box hboxFormulaType = Box.createHorizontalBox();
+        hboxFormulaType.add(Box.createHorizontalGlue());
+        hboxFormulaType.add(func1);
+        hboxFormulaType.add(Box.createHorizontalGlue());
+        hboxFormulaType.add(func2);
+        hboxFormulaType.add(Box.createHorizontalGlue());
+
+
+        Box ololo=Box.createVerticalBox();
+        ololo.add(textFieldBox);
+        ololo.add(hboxFormulaType);
+        this.getContentPane().add(ololo);
     }
+
     // Формула №1 для рассчѐта
     public Double calculate1(Double x, Double y) {
-        return x*x + y*y;
+        return x * x + y * y;
     }
+
     // Формула №2 для рассчѐта
     public Double calculate2(Double x, Double y) {
-        return x*x*x + 1/y;
+        return x * x * x + 1 / y;
+    }
+
+    private JTextField createTextField(String name){
+        JTextField field = new JTextField(name);
+        Dimension dimension = new Dimension(10*field.getPreferredSize().width, field.getPreferredSize().height);
+        field.setMaximumSize(dimension);
+        field.setMinimumSize(dimension);
+        field.setPreferredSize(dimension);
+        return field;
     }
 
 }
