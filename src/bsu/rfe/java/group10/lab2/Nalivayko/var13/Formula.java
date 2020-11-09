@@ -10,8 +10,8 @@ import static java.lang.Math.cos;
 import static java.lang.Math.log;
 
 public class Formula extends JFrame {
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 420;
+    private static final int WIDTH = 700;
+    private static final int HEIGHT = 520;
     private int formulaId = 1;
     private int memId = 1;
     private double memSum1 = 0;
@@ -106,19 +106,53 @@ public class Formula extends JFrame {
 
         JButton buttonM = new JButton("M+");
         buttonM.addActionListener(actionEvent -> {
-            double counterM = Double.parseDouble(result.getText());
             if (memId == 1) {
-                memSum1 += counterM;
-                System.out.println(memSum1);
-                result.setText(String.valueOf(Double.valueOf(memSum1)));
+                if(formulaId==1) {
+                    double x = Double.parseDouble(textFieldX.getText());
+                    double y = Double.parseDouble(textFieldY.getText());
+                    double z = Double.parseDouble(textFieldZ.getText());
+                    memSum1+=calculate1(x,y,z);
+                    result.setText(String.valueOf(Double.valueOf(memSum1)));
+                }
+                if(formulaId==2){
+                    double x = Double.parseDouble(textFieldX.getText());
+                    double y = Double.parseDouble(textFieldY.getText());
+                    double z = Double.parseDouble(textFieldZ.getText());
+                    memSum1+=calculate2(x,y,z);
+                    result.setText(String.valueOf(Double.valueOf(memSum1)));
+                }
             }
             if (memId == 2) {
-                memSum2 += counterM;
-                result.setText(String.valueOf(memSum2));
+                if(formulaId==1) {
+                    double x = Double.parseDouble(textFieldX.getText());
+                    double y = Double.parseDouble(textFieldY.getText());
+                    double z = Double.parseDouble(textFieldZ.getText());
+                    memSum2+=calculate1(x,y,z);
+                    result.setText(String.valueOf(Double.valueOf(memSum2)));
+                }
+                if(formulaId==2){
+                    double x = Double.parseDouble(textFieldX.getText());
+                    double y = Double.parseDouble(textFieldY.getText());
+                    double z = Double.parseDouble(textFieldZ.getText());
+                    memSum2+=calculate2(x,y,z);
+                    result.setText(String.valueOf(Double.valueOf(memSum2)));
+                }
             }
             if (memId == 3) {
-                memSum3 += counterM;
-                result.setText(String.valueOf(memSum3));
+                if(formulaId==1) {
+                    double x = Double.parseDouble(textFieldX.getText());
+                    double y = Double.parseDouble(textFieldY.getText());
+                    double z = Double.parseDouble(textFieldZ.getText());
+                    memSum3+=calculate1(x,y,z);
+                    result.setText(String.valueOf(Double.valueOf(memSum3)));
+                }
+                if(formulaId==2){
+                    double x = Double.parseDouble(textFieldX.getText());
+                    double y = Double.parseDouble(textFieldY.getText());
+                    double z = Double.parseDouble(textFieldZ.getText());
+                    memSum3+=calculate2(x,y,z);
+                    result.setText(String.valueOf(Double.valueOf(memSum3)));
+                }
             }
         });
 
@@ -184,7 +218,7 @@ public class Formula extends JFrame {
 
     private JTextField createTextField() {
         JTextField field = new JTextField("0");
-        Dimension dimension = new Dimension(10 * field.getPreferredSize().width, field.getPreferredSize().height);
+        Dimension dimension = new Dimension(20 * field.getPreferredSize().width, field.getPreferredSize().height);
         field.setMaximumSize(dimension);
         field.setMinimumSize(dimension);
         field.setPreferredSize(dimension);
