@@ -10,8 +10,8 @@ import static java.lang.Math.cos;
 import static java.lang.Math.log;
 
 public class Formula extends JFrame {
-    private static final int WIDTH = 400;
-    private static final int HEIGHT = 320;
+    private static final int WIDTH = 500;
+    private static final int HEIGHT = 420;
     private int formulaId = 1;
     private int memId = 1;
     private double memSum1 = 0;
@@ -30,15 +30,15 @@ public class Formula extends JFrame {
         Box textFieldBox = Box.createHorizontalBox();
         textFieldBox.add(Box.createHorizontalGlue());
         textFieldBox.add(labelforX);
-        textFieldBox.add(Box.createHorizontalGlue());
+        textFieldBox.add(Box.createHorizontalStrut(10));
         textFieldBox.add(textFieldX);
-        textFieldBox.add(Box.createHorizontalGlue());
+        textFieldBox.add(Box.createHorizontalStrut(30));
         textFieldBox.add(labelforY);
-        textFieldBox.add(Box.createHorizontalGlue());
+        textFieldBox.add(Box.createHorizontalStrut(10));;
         textFieldBox.add(textFieldY);
-        textFieldBox.add(Box.createHorizontalGlue());
+        textFieldBox.add(Box.createHorizontalStrut(30));
         textFieldBox.add(labelforZ);
-        textFieldBox.add(Box.createHorizontalGlue());
+        textFieldBox.add(Box.createHorizontalStrut(10));
         textFieldBox.add(textFieldZ);
         textFieldBox.add(Box.createHorizontalGlue());
         JRadioButton func1 = new JRadioButton("Formula 1");
@@ -98,9 +98,9 @@ public class Formula extends JFrame {
         Box memBox = Box.createHorizontalBox();
         memBox.add(Box.createHorizontalGlue());
         memBox.add(mem1);
-        memBox.add(Box.createHorizontalGlue());
+        memBox.add(Box.createHorizontalStrut(40));
         memBox.add(mem2);
-        memBox.add(Box.createHorizontalGlue());
+        memBox.add(Box.createHorizontalStrut(40));
         memBox.add(mem3);
         memBox.add(Box.createHorizontalGlue());
 
@@ -139,11 +139,11 @@ public class Formula extends JFrame {
         Box bBBbox = Box.createHorizontalBox();
         bBBbox.add(Box.createHorizontalGlue());
         bBBbox.add(buttonCalc);
-        bBBbox.add(Box.createHorizontalGlue());
+        bBBbox.add(Box.createHorizontalStrut(30));  //!!
         bBBbox.add(buttonMC);
-        bBBbox.add(Box.createHorizontalGlue());
+        bBBbox.add(Box.createHorizontalStrut(30));
         bBBbox.add(buttonM);
-        bBBbox.add(Box.createHorizontalGlue());
+        bBBbox.add(Box.createHorizontalStrut(30));
         bBBbox.add(buttonClean);
         bBBbox.add(Box.createHorizontalGlue());
 
